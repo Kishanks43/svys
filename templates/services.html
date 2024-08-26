@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock title %}
+
+{% block body %}
+
+<div class="container mb-3 px-3 py-3">
+  <form class="row g-3 my-5 mx-5" method="POST" action="{% url 'add_entry' %}">
+
+    {% csrf_token %}
+    <div class="form-group col-md-6">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" class="form-control " name="name" id="name" placeholder="Enter Devotee's name " >
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="shop" class="form-label">Shop Name</label>
+      <input type="text" class="form-control " name="shop" id="shop" placeholder="(If applicable)" >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="type" class="form-label">Enter type of contribution</label>
+      <select  name="type" id="type"  >
+        <option value="Amount">Amount</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+      <div class="form-group col-md-6">  
+      <label for="shop" class="form-label ">Contribution Name :</label>
+      <input type="text" class="form-control " name="other" id="other" placeholder="(If applicable)" >
+    </div>
+    <div class="form-group mb-3">
+      <span class="input-group-text">₹</span>
+      <input type="number" step="1" name="amount" id="amount" class="form-control"
+        aria-label="Amount (to the nearest rupee)" placeholder="(If applicable)">
+      <span class="input-group-text">.00</span>
+    </div>
+    <div class="form-group col-12">
+      <label for="location" class="form-label">Address</label>
+      <textarea type="link" name="location" class="form-control" id="location" placeholder="Input Location from web"
+        ></textarea>
+    </div>
+    <div class="form-group col-12">
+      <label for="reference" class="form-label">Reference</label>
+      <input type="text" class="form-control" name="reference" id="reference"
+        placeholder="Apartment, studio, or floor | Enter location manually" >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="city" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" id="city" placeholder="Enter city name" >
+    </div>
+    <div class="form-group col-md-4">
+      <label for="state" class="form-label">State</label>
+      <input type="text" class="form-control" name="state" id="state" placeholder="Enter state name" >
+
+    </div>
+    <div class="form-group col-md-2">
+      <label for="pin" class="form-label">PIN</label>
+      <input type="text" name="pin" class="form-control" id="pin" >
+    </div>
+
+
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add Entry</button>
+    </div>
+  </form>
+</div>
+{% endblock body %}
